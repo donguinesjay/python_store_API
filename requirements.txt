@@ -1,3 +1,4 @@
+six
 Flask
 Flask-RESTful
 Flask-JWT
