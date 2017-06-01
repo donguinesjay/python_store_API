@@ -15,7 +15,7 @@ class Item(Resource):
 		required=True,
 		help="Every item needs a store id."
 		)
-		 
+
 	@jwt_required()
 	def get(self,name):
 		item = ItemModel.find_by_name(name)
@@ -41,7 +41,7 @@ class Item(Resource):
 
 
 	def delete(self,name):
-		item = Item.find_by_name(name)
+		item = ItemModel.find_by_name(name)
 		if item:
 			item.delete_from_db()
 
