@@ -1,3 +1,4 @@
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -23,6 +24,6 @@ api.add_resource(StoreList, '/stores')
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':
-    from run import create_tables
+    from db import db
     db.init_app(app)
     app.run(port=5000, debug=True)
