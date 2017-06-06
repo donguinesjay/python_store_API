@@ -3,5 +3,8 @@ Flask
 Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
+simplejson
+sqlalchemy
+pymysql
 uwsgi
 psycopg2

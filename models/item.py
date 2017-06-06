@@ -15,7 +15,7 @@ class ItemModel(db.Model):
         self.name = name
         self.store_id = store_id
 
-    def json(self):
+    def json(self):.
        return {'name':self.name, 'price': self.price}
 
     @classmethod
