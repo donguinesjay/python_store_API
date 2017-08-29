@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, make_response, jsonify, request, redirect, url_for, send_from_directory
 from flask_restful import Api
 from flask_jwt import JWT
 
@@ -17,6 +17,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secreto'
 api = Api(app)
+
+@api.representation('application/json')
+def output_json(data, code, headers=None):
+    resp = make_response(jsonify(data), code)
+    resp.headers.extend(headers or {})
+    return resp
 
 jwt = JWT(app, authenticate, identity)#/auth
 
